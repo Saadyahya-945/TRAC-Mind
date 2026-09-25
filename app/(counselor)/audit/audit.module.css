@@ -1,0 +1,25 @@
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--sp-6);
+}
+.tableCard {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  overflow-x: auto;
+  margin-bottom: var(--sp-5);
+}
+.timestamp { color: var(--ink-faint) !important; font-family: monospace; white-space: nowrap; }
+.actor { font-weight: 600; color: var(--ink); }
+.entity { color: var(--brand); font-weight: 500; }
+.notice {
+  font-size: 0.8125rem;
+  color: var(--ink-faint);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4);
+}

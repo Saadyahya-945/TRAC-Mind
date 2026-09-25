@@ -1,0 +1,178 @@
+.page {
+  padding: var(--sp-4) 0 var(--sp-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.headerRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+@media (min-width: 540px) {
+  .headerRow {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.timeTabs {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  padding: 3px;
+  gap: 3px;
+  align-self: flex-start;
+}
+
+.timeTab {
+  border: none;
+  background: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.timeTab:hover {
+  color: var(--ink);
+}
+.timeTabActive {
+  background: #fff !important;
+  color: var(--brand) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+}
+@media (max-width: 440px) {
+  .statsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statPill {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-3);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.statNum {
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.statLbl {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  margin-top: var(--sp-1);
+  font-weight: 600;
+}
+
+.chartWrapper {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-2xl);
+  padding: var(--sp-5);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.svg {
+  width: 100%;
+  display: block;
+}
+
+.activeTooltip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-2) var(--sp-3);
+  font-size: 0.8125rem;
+  margin-top: var(--sp-3);
+  animation: fade-in 0.2s ease both;
+}
+
+.currentTier {
+  margin-top: var(--sp-3);
+}
+
+.disclaimer {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* ── Support Insights ────────────────────────────────────────────────────── */
+.insightsCard {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-2xl);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.insightHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.insightHeader h2 {
+  font-size: 1.0625rem;
+}
+
+.insightGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.insightItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  text-decoration: none;
+  transition: all var(--dur-fast) var(--ease);
+}
+.insightItem:hover {
+  border-color: var(--brand);
+  background: #fff;
+  transform: translateX(3px);
+  text-decoration: none;
+}
+.insightItem span {
+  font-size: 1.5rem;
+}
+
+.exportSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+}

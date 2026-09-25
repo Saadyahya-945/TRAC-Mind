@@ -1,0 +1,268 @@
+.page {
+  padding: var(--sp-4) 0 var(--sp-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* ── Tab Bar ─────────────────────────────────────────────────────────────── */
+.tabBar {
+  display: flex;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-full);
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: var(--sp-2);
+}
+
+.tabBtn {
+  flex: 1;
+  padding: var(--sp-2) var(--sp-4);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  background: none;
+  color: var(--ink-muted);
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.tabBtn:hover {
+  color: var(--ink);
+}
+.tabActive {
+  background: #fff !important;
+  color: var(--brand) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Sensory Stepper ─────────────────────────────────────────────────────── */
+.sensoryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.stepProgress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-2);
+}
+
+.progressDot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink-faint);
+  transition: all var(--dur-base) var(--ease);
+}
+
+.dotCurrent {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(139,116,201,0.3);
+}
+
+.dotDone {
+  background: rgba(111,169,138,0.2);
+  color: var(--risk-low);
+  border-color: var(--risk-low);
+}
+
+/* ── Sensory Card ────────────────────────────────────────────────────────── */
+.sensoryCard {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: var(--r-2xl);
+  padding: var(--sp-6);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  transition: border-color var(--dur-base) var(--ease);
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.stepIcon {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.stepCount {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stepDesc {
+  font-size: 0.9375rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* ── Checklist ───────────────────────────────────────────────────────────── */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--dur-fast) var(--ease);
+}
+.checkItem:hover {
+  border-color: var(--brand);
+  background: #fff;
+}
+
+.checkItemDone {
+  background: rgba(111,169,138,0.08) !important;
+  border-color: rgba(111,169,138,0.5) !important;
+}
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--r-sm);
+  border: 2px solid var(--border);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--risk-low);
+  flex-shrink: 0;
+  transition: all var(--dur-fast) var(--ease);
+}
+.checkItemDone .checkbox {
+  background: var(--risk-low);
+  border-color: var(--risk-low);
+  color: #fff;
+}
+
+.checkText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.sensoryActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+}
+
+.calmTip {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-3) var(--sp-4);
+}
+
+/* ── Completed Sensory Card ──────────────────────────────────────────────── */
+.completedCard {
+  background: #fff;
+  border: 1.5px solid rgba(111,169,138,0.3);
+  border-radius: var(--r-2xl);
+  padding: var(--sp-8) var(--sp-6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.compIcon {
+  font-size: 3.5rem;
+  margin-bottom: var(--sp-2);
+  animation: float 4s ease-in-out infinite;
+}
+
+.compBtns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+  width: 100%;
+}
+
+/* ── Mood & Safety Checkin ───────────────────────────────────────────────── */
+.intro {
+  margin-bottom: var(--sp-6);
+}
+.section {
+  margin-bottom: var(--sp-6);
+}
+.section h2 {
+  font-size: 1.0625rem;
+  margin-bottom: var(--sp-3);
+}
+.submitArea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.thankYou {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--sp-8) 0;
+  gap: var(--sp-4);
+}
+.tyEmoji {
+  font-size: 3.5rem;
+}
+
+.supportMsg {
+  background: rgba(139,116,201,.1);
+  border: 1.5px solid rgba(139,116,201,.3);
+  border-radius: var(--r-xl);
+  padding: var(--sp-5);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  line-height: 1.6;
+  max-width: 440px;
+  margin-top: var(--sp-4);
+}

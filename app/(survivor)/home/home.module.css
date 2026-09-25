@@ -1,0 +1,399 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  padding: var(--sp-4) 0 var(--sp-10);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Hero section ─────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, rgba(139,116,201,0.12) 0%, rgba(241,235,251,0.75) 100%);
+  border: 1.5px solid rgba(139,116,201,0.25);
+  border-radius: var(--r-2xl);
+  padding: var(--sp-6) var(--sp-6);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+}
+
+.greetBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(139,116,201,0.16);
+  color: var(--brand);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  margin-bottom: var(--sp-3);
+  letter-spacing: 0.02em;
+}
+
+.greetTitle {
+  font-size: clamp(1.625rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: var(--sp-2);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.greetSub {
+  font-size: 0.9375rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  max-width: 480px;
+}
+
+.heroCircle {
+  position: absolute;
+  right: -30px;
+  bottom: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,116,201,0.22) 0%, rgba(241,235,251,0) 70%);
+  pointer-events: none;
+}
+
+/* ── Voice & Chat CTA Strip ──────────────────────────────────────────────── */
+.ctaStrip {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--sp-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 580px) {
+  .ctaStrip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.voiceCTA {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  background: linear-gradient(135deg, #FFF0F3 0%, #FFE4EB 100%);
+  border: 1.5px solid rgba(201,82,107,0.35);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-5);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+
+.voiceCTA:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,82,107,0.18);
+  border-color: var(--risk-high);
+  text-decoration: none;
+}
+
+.voicePulse {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 8px;
+  height: 8px;
+  background: var(--risk-high);
+  border-radius: 50%;
+  animation: pulse-ring 1.8s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(201,82,107, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(201,82,107, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(201,82,107, 0); }
+}
+
+.voiceIcon {
+  font-size: 2.25rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.voiceContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.voiceTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.voiceDesc {
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+.voiceArrow {
+  font-size: 1.25rem;
+  color: var(--risk-high);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-left: var(--sp-2);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.voiceCTA:hover .voiceArrow {
+  transform: translateX(4px);
+}
+
+.chatCTA {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  background: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-5);
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+}
+
+.chatCTA:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+
+.chatIcon {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.chatTitle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* ── Quick actions grid ───────────────────────────────────────────────────── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.actionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .actionGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.actionCard {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-5);
+  border: 1.5px solid var(--border);
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+
+.actionCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand);
+  text-decoration: none;
+}
+
+.actionIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.actionText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.actionLabel {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.actionDesc {
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+/* ── Privacy note ─────────────────────────────────────────────────────────── */
+.privacyNote {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-3) var(--sp-4);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.lockIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ── More support grid ────────────────────────────────────────────────────── */
+.moreGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .moreGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.moreCard {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.moreCard:hover {
+  background: var(--surface);
+  border-color: var(--brand);
+  transform: translateX(3px);
+  text-decoration: none;
+}
+
+/* ── Helplines ───────────────────────────────────────────────────────────── */
+.helplineGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .helplineGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.helplineCard {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.helplineCard:hover {
+  border-color: var(--brand);
+  background: var(--surface);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.helplineIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.helplineText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.helplineName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.helplineNum {
+  font-size: 0.8125rem;
+  color: var(--brand);
+  font-weight: 600;
+  line-height: 1.25;
+}

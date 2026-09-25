@@ -1,0 +1,363 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 140px);
+  padding: 0;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) 0 var(--sp-4);
+  border-bottom: 1px solid var(--border);
+  gap: var(--sp-2);
+}
+
+.buddyMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.buddyAvatar {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, rgba(139,116,201,.2), rgba(241,235,251,1));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  border: 2px solid rgba(139,116,201,.3);
+  flex-shrink: 0;
+}
+
+.buddyName {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.buddyStatus {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78125rem;
+  color: var(--risk-low);
+  font-weight: 500;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  background: var(--risk-low);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+
+.voiceSwitchBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #FFF0F3, #FFE5EC);
+  border: 1.5px solid rgba(201,82,107,0.3);
+  color: var(--risk-high);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  border-radius: var(--r-full);
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+.voiceSwitchBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(201,82,107,0.15);
+  text-decoration: none;
+}
+
+.voicePulseDot {
+  width: 6px;
+  height: 6px;
+  background: var(--risk-high);
+  border-radius: 50%;
+  animation: pulse-dot 1.2s infinite;
+}
+
+/* ── Privacy banner ──────────────────────────────────────────────────────── */
+.privacyBanner {
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-3);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+
+/* ── Thread ─────────────────────────────────────────────────────────────── */
+.thread {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-2) 0;
+}
+
+.msgRow {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-2);
+}
+.msgRowUser {
+  flex-direction: row-reverse;
+}
+.msgRowUser .timestamp {
+  text-align: right;
+}
+
+.avatarSmall {
+  width: 28px;
+  height: 28px;
+  background: rgba(139,116,201,.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.timestamp {
+  margin-top: 3px;
+  padding: 0 4px;
+}
+
+/* ── Typing indicator ────────────────────────────────────────────────────── */
+.typingBubble {
+  display: flex !important;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 16px !important;
+}
+
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%            { transform: translateY(-6px); }
+}
+
+.dot1, .dot2, .dot3 {
+  width: 7px;
+  height: 7px;
+  background: var(--ink-faint);
+  border-radius: 50%;
+}
+.dot1 { animation: typing-bounce 1.2s 0s ease infinite; }
+.dot2 { animation: typing-bounce 1.2s 0.2s ease infinite; }
+.dot3 { animation: typing-bounce 1.2s 0.4s ease infinite; }
+
+/* ── Emergency suggestion ────────────────────────────────────────────────── */
+.emergencySuggestion {
+  background: #FFF5F7;
+  border: 1.5px solid rgba(201,82,107,0.35);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+  box-shadow: var(--shadow-sm);
+}
+
+.emergencyHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--risk-high);
+  font-size: 0.875rem;
+}
+
+.closeAlertBtn {
+  background: none;
+  border: none;
+  color: var(--ink-muted);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: var(--r-sm);
+}
+
+.emergencyActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+}
+
+/* ── Quick phrases ───────────────────────────────────────────────────────── */
+.quickPhrases {
+  display: flex;
+  gap: var(--sp-2);
+  padding: var(--sp-2) 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.quickPhrases::-webkit-scrollbar {
+  display: none;
+}
+
+.phraseChip {
+  flex-shrink: 0;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-full);
+  padding: var(--sp-2) var(--sp-4);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+.phraseChip:hover {
+  background: var(--surface-2);
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+
+/* ── Input bar ────────────────────────────────────────────────────────────── */
+.inputBar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) 0 var(--sp-1);
+  border-top: 1px solid var(--border);
+}
+
+.micToggleBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.micToggleBtn:hover {
+  background: var(--surface-2);
+  border-color: var(--brand);
+  transform: scale(1.05);
+}
+
+.micActive {
+  background: #FFF0F3 !important;
+  border-color: var(--risk-high) !important;
+  animation: pulse-ring 1.5s infinite;
+}
+
+.chatInput {
+  border-radius: var(--r-full) !important;
+  flex: 1;
+}
+
+.sendBtn {
+  flex-shrink: 0;
+  border-radius: var(--r-full) !important;
+}
+.sendBtn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ── Glassmorphic Modals ─────────────────────────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 35, 80, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+  animation: modal-fade-in 0.2s ease both;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.glassModal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--r-2xl);
+  box-shadow: 0 20px 60px rgba(46, 35, 80, 0.22), 0 0 0 1px rgba(201, 184, 236, 0.3);
+  padding: var(--sp-7);
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  animation: modal-scale-up 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes modal-scale-up {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.modalIconBadge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(139, 116, 201, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.modalDesc {
+  font-size: 0.9375rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.modalBtns {
+  display: flex;
+  gap: var(--sp-3);
+  width: 100%;
+  margin-top: var(--sp-2);
+}
+

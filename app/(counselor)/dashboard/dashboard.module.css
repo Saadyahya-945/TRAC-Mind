@@ -1,0 +1,252 @@
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--sp-6);
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.liveIndicator {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--risk-low);
+  background: rgba(111,169,138,.1);
+  border: 1px solid rgba(111,169,138,.3);
+  border-radius: var(--r-full);
+  padding: var(--sp-1) var(--sp-4);
+  white-space: nowrap;
+}
+.liveDot {
+  width: 8px;
+  height: 8px;
+  background: var(--risk-low);
+  border-radius: 50%;
+  animation: live-pulse 1.5s ease infinite;
+}
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .3; }
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+@media (max-width: 900px) {
+  .statsRow { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .statsRow { grid-template-columns: 1fr; }
+}
+
+/* ── Filter & Search Bar ─────────────────────────────────────────────────── */
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
+  flex-wrap: wrap;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  font-size: 0.9375rem;
+  pointer-events: none;
+}
+.searchInput {
+  padding-left: 36px !important;
+  width: 100%;
+}
+
+.filterChips {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  padding: 3px;
+  gap: 3px;
+}
+
+.filterChip {
+  background: none;
+  border: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.filterChip:hover { color: var(--ink); }
+.filterChipActive {
+  background: #fff !important;
+  color: var(--brand) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.statusSelect {
+  max-width: 160px;
+}
+
+/* ── Mobile Card List (shown on <= 768px) ────────────────────────────────── */
+.mobileCardList {
+  display: none;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+@media (max-width: 768px) {
+  .mobileCardList { display: flex; }
+}
+
+.caseMobileCard {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.caseMobileCard:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+
+.mCardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mCaseId {
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.mCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  background: var(--surface);
+  border-radius: var(--r-md);
+  padding: var(--sp-3);
+}
+
+.mDdiRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+}
+
+.mSlaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: var(--sp-2);
+}
+
+.mCardFoot {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.emptyState {
+  background: #fff;
+  border: 1px dashed var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-8);
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 0.9375rem;
+}
+
+/* ── Desktop Table ───────────────────────────────────────────────────────── */
+.tableCard {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+@media (max-width: 768px) {
+  .tableCard { display: none; }
+}
+
+/* ── DDI mini bar ─────────────────────────────────────────────────────────── */
+.ddiCell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 80px;
+}
+.ddiBar {
+  height: 5px;
+  background: var(--surface-2);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+.ddiBarFill {
+  height: 100%;
+  border-radius: var(--r-full);
+  transition: width 0.5s var(--ease);
+}
+
+/* ── Tags ─────────────────────────────────────────────────────────────────── */
+.channelTag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--surface-2);
+  color: var(--ink-muted);
+  border-radius: var(--r-full);
+  padding: 2px 8px;
+}
+
+.slaUrgent {
+  color: var(--risk-high);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+.slaNormal {
+  color: var(--ink-muted);
+  font-size: 0.875rem;
+}
+
+.statusChip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-radius: var(--r-full);
+  padding: 2px 10px;
+}
+.statusChip.open        { background: rgba(201,82,107,.1);  color: var(--risk-high);   }
+.statusChip.inprogress  { background: rgba(217,164,65,.1);  color: var(--risk-medium); }
+.statusChip.resolved    { background: rgba(111,169,138,.1); color: var(--risk-low);    }

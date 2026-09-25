@@ -1,0 +1,252 @@
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--sp-6);
+  align-items: start;
+}
+@media (max-width: 1080px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.leftCol, .rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.sectionTitle {
+  margin-bottom: var(--sp-3);
+  font-size: 1.125rem;
+}
+
+/* ── Audio Playback Widget ───────────────────────────────────────────────── */
+.audioCardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+}
+
+.audioPlayer {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-3) var(--sp-4);
+}
+
+.playBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform var(--dur-fast) var(--ease);
+}
+.playBtn:hover {
+  transform: scale(1.08);
+}
+
+.waveformContainer {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  height: 40px;
+  cursor: pointer;
+}
+
+.audioWaveBar {
+  width: 4px;
+  border-radius: var(--r-full);
+  min-height: 4px;
+  transition: background var(--dur-fast) var(--ease);
+}
+
+.audioTime {
+  font-family: monospace;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+/* ── Transcript ─────────────────────────────────────────────────────────── */
+.transcript {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  background: var(--bg);
+  border-radius: var(--r-lg);
+  padding: var(--sp-4);
+  border: 1px solid var(--border);
+  max-height: 280px;
+  overflow-y: auto;
+}
+.transcriptLine {
+  display: flex;
+  gap: var(--sp-3);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.transcriptNum {
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  min-width: 20px;
+  padding-top: 3px;
+  font-family: monospace;
+}
+.piiNote {
+  margin-top: var(--sp-3);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+  line-height: 1.5;
+}
+
+/* ── Notes Editor ────────────────────────────────────────────────────────── */
+.notesEditor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.pastNotes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.noteItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-3);
+}
+
+.noteDot {
+  color: var(--brand);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* ── Biomarkers ─────────────────────────────────────────────────────────── */
+.bioGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+.bioItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bioHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bioLabel {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.bioValue {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.bioDisclaimer {
+  margin-top: var(--sp-2);
+}
+
+/* ── DDI Donut Row ───────────────────────────────────────────────────────── */
+.ddiRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+}
+.ddiMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex: 1;
+}
+.ddiMetaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ── Multi-Model Consensus ───────────────────────────────────────────────── */
+.consensusList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+
+.consensusItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.consensusHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.consensusBadge {
+  background: rgba(111,169,138,0.12);
+  border: 1px solid rgba(111,169,138,0.35);
+  border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--risk-low);
+  text-align: center;
+}
+
+/* ── Actions Card ────────────────────────────────────────────────────────── */
+.actionsCard {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-5);
+  box-shadow: var(--shadow-sm);
+}
+.actionsTitle {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: var(--sp-3);
+  color: var(--ink);
+}
+.actionBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}

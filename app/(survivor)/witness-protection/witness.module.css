@@ -1,0 +1,138 @@
+.page {
+  padding: var(--sp-4) 0 var(--sp-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.shield {
+  font-size: 3rem;
+  margin-bottom: var(--sp-2);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.cardIcon {
+  font-size: 1.75rem;
+  margin-bottom: var(--sp-1);
+}
+
+.cardTitle {
+  font-weight: 700;
+  margin-bottom: var(--sp-2);
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.confirmState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--sp-8) 0;
+  gap: var(--sp-4);
+}
+
+.confirmIcon {
+  font-size: 3.5rem;
+}
+
+.caseRef {
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-3) var(--sp-5);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.urgentAlert {
+  background: #FFF5F7;
+  border: 1.5px solid rgba(201,82,107,0.4);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-5);
+  text-align: left;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.backBtn {
+  margin-bottom: var(--sp-2);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.threatSelector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-2);
+}
+@media (max-width: 540px) {
+  .threatSelector { grid-template-columns: 1fr; }
+}
+
+.threatBtn {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-3);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.threatBtn:hover {
+  border-color: var(--brand);
+}
+.threatActive {
+  background: #fff !important;
+  border-color: var(--risk-high) !important;
+  box-shadow: 0 0 10px rgba(201,82,107,0.2);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+@media (max-width: 500px) {
+  .formGrid { grid-template-columns: 1fr; }
+}
+
+.textarea {
+  resize: vertical;
+  border-radius: var(--r-md) !important;
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  cursor: pointer;
+}

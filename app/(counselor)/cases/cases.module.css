@@ -1,0 +1,140 @@
+.header {
+  margin-bottom: var(--sp-6);
+}
+
+.controlsBar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+  flex-wrap: wrap;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  font-size: 0.9375rem;
+  pointer-events: none;
+}
+.searchInput {
+  padding-left: 36px !important;
+  width: 100%;
+}
+
+.tierChips {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  padding: 3px;
+  gap: 3px;
+}
+
+.tierChip {
+  background: none;
+  border: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.tierChip:hover { color: var(--ink); }
+.tierChipActive {
+  background: #fff !important;
+  color: var(--brand) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.sortSelect {
+  max-width: 200px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  max-width: 1000px;
+}
+
+.caseRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-5);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--dur-fast) var(--ease);
+}
+.caseRow:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.caseRow:focus-visible {
+  outline: 2.5px solid var(--brand);
+  outline-offset: 3px;
+}
+
+@media (max-width: 580px) {
+  .caseRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .caseRight {
+    align-self: flex-end;
+  }
+}
+
+.caseLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 180px;
+}
+.caseId {
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+.caseMid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+.caseRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.ddiScore {
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.emptyState {
+  background: #fff;
+  border: 1px dashed var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-8);
+  text-align: center;
+  color: var(--ink-muted);
+}

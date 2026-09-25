@@ -1,0 +1,70 @@
+.page { padding: var(--sp-6) 0 var(--sp-10); }
+
+.dpdpNote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+.consentList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.consentItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.consentItem:has(input:checked) { border-color: rgba(139,116,201,.4); }
+
+.consentContent { flex: 1; }
+
+.consentTitle {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.requiredBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  background: rgba(139,116,201,.15);
+  color: var(--brand);
+  border-radius: var(--r-full);
+  padding: 2px 8px;
+}
+
+.deletionSection {
+  margin-top: var(--sp-8);
+  padding: var(--sp-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+}
+
+.retentionNote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  margin-top: var(--sp-5);
+}

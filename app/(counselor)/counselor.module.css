@@ -3,6 +3,9 @@
   min-height: 100vh;
   position: relative;
 }
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+}
 
 /* ── Desktop sidebar ─────────────────────────────────────────────────────── */
 .desktopSidebar {
@@ -251,7 +254,7 @@
   min-width: 0;
 }
 @media (max-width: 860px) {
-  .main { padding: var(--sp-5) var(--sp-4); }
+  .main { width: 100%; padding: var(--sp-5) var(--sp-4); }
 }
 @media (max-width: 480px) {
   .main { padding: var(--sp-4) var(--sp-3); }

@@ -55,7 +55,7 @@ export default function BuddyVoicePage() {
   const [browserSupported, setBrowserSupported] = useState(true);
   const [isCrisisActive, setIsCrisisActive] = useState(false);
   const [showHomeModal, setShowHomeModal] = useState(false);
-  const [autoListenEnabled, setAutoListenEnabled] = useState(true);
+  const [autoListenEnabled, setAutoListenEnabled] = useState(false);
 
   // Core execution refs
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
@@ -63,13 +63,14 @@ export default function BuddyVoicePage() {
   const activeUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const watchdogTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const waveTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const playbackGenerationRef = useRef(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isNearBottomRef = useRef<boolean>(true);
   const isProcessingRef = useRef<boolean>(false);
   const hasProcessedSessionRef = useRef<boolean>(false);
   const latestTranscriptRef = useRef<string>("");
   const turnCounterRef = useRef<number>(0);
-  const autoListenRef = useRef<boolean>(true);
+  const autoListenRef = useRef<boolean>(false);
 
   // Keep autoListenRef in sync
   useEffect(() => {
@@ -130,6 +131,7 @@ export default function BuddyVoicePage() {
 
   // Stop any active audio completely
   const stopAudioPlayback = useCallback(() => {
+    playbackGenerationRef.current += 1;
     if (watchdogTimerRef.current) {
       clearTimeout(watchdogTimerRef.current);
       watchdogTimerRef.current = null;
@@ -202,6 +204,8 @@ export default function BuddyVoicePage() {
 
   // Robust Browser Speech Synthesis (impervious to Chromium GC and cancel-race bugs)
   const speakBrowserFallback = useCallback((text: string) => {
+    const playbackGeneration = ++playbackGenerationRef.current;
+
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       onPlaybackFinished();
       return;
@@ -217,6 +221,8 @@ export default function BuddyVoicePage() {
 
       // 60ms delay ensures pending cancel() completely flushes in Chromium
       setTimeout(() => {
+        if (playbackGeneration !== playbackGenerationRef.current) return;
+
         try {
           const cleanText = text.replace(/[*_#`]/g, "").trim();
           if (!cleanText) {
@@ -259,17 +265,19 @@ export default function BuddyVoicePage() {
           };
 
           utter.onend = () => {
+            if (playbackGeneration !== playbackGenerationRef.current) return;
             onPlaybackFinished();
           };
 
           utter.onerror = (err) => {
+            if (playbackGeneration !== playbackGenerationRef.current) return;
             console.warn("[SpeechSynthesis] Error:", err);
             onPlaybackFinished();
           };
 
           const maxMs = Math.min(16000, Math.max(3000, cleanText.length * 110));
           watchdogTimerRef.current = setTimeout(() => {
-            if (isProcessingRef.current) {
+            if (playbackGeneration === playbackGenerationRef.current && isProcessingRef.current) {
               onPlaybackFinished();
             }
           }, maxMs);
@@ -288,6 +296,7 @@ export default function BuddyVoicePage() {
   const playGeminiAudio = useCallback((audioBase64: string, fallbackText: string) => {
     try {
       stopAudioPlayback();
+      const playbackGeneration = playbackGenerationRef.current;
 
       let audio = audioPlayerRef.current;
       if (!audio) {
@@ -307,16 +316,18 @@ export default function BuddyVoicePage() {
       };
 
       audio.onended = () => {
+        if (playbackGeneration !== playbackGenerationRef.current) return;
         onPlaybackFinished();
       };
 
       audio.onerror = (e) => {
+        if (playbackGeneration !== playbackGenerationRef.current) return;
         console.warn("[BuddyVoice] Native audio error, switching to browser speech fallback:", e);
         speakBrowserFallback(fallbackText);
       };
 
       watchdogTimerRef.current = setTimeout(() => {
-        if (isProcessingRef.current && audioPlayerRef.current) {
+        if (playbackGeneration === playbackGenerationRef.current && isProcessingRef.current && audioPlayerRef.current) {
           onPlaybackFinished();
         }
       }, 20000);
@@ -324,6 +335,7 @@ export default function BuddyVoicePage() {
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.catch((err) => {
+          if (playbackGeneration !== playbackGenerationRef.current) return;
           console.warn("[BuddyVoice] Audio play() promise rejected, falling back to speech synthesis:", err);
           speakBrowserFallback(fallbackText);
         });

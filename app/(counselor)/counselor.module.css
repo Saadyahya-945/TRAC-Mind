@@ -78,23 +78,9 @@
   border-radius: var(--r-sm);
 }
 
-.logoMark {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-}
-
-.logoAccent {
-  color: var(--brand);
-  font-weight: 800;
-}
-
-.logoSub {
-  font-size: 0.75rem;
-  color: var(--ink-muted);
-  font-weight: 600;
+.logoImage {
+  display: block;
+  object-fit: contain;
 }
 
 .closeSidebar {
@@ -182,13 +168,12 @@
 .mobileLogoBtn {
   background: none;
   border: none;
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--ink);
   cursor: pointer;
   padding: 0;
+  display: flex;
+  align-items: center;
 }
+
 
 .mobilePortalLink {
   background: none;

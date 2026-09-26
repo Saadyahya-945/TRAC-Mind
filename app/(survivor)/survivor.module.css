@@ -36,26 +36,9 @@
   border-radius: var(--r-sm);
 }
 
-.logoBadge {
-  font-size: 1.35rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 2px 4px rgba(139, 116, 201, 0.25));
-}
-
-.logoText {
-  font-family: var(--font-serif);
-  font-size: 1.1875rem;
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-}
-
-.logoAccent {
-  color: var(--brand);
-  font-weight: 800;
+.logoImage {
+  display: block;
+  object-fit: contain;
 }
 
 .topbarActions {

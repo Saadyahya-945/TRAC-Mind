@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import styles from "./landing.module.css";
 import { useTranslation, Language } from "@/lib/i18n";
 
@@ -32,9 +33,15 @@ export default function LandingPage() {
 
       {/* Top strip */}
       <div className={styles.topStrip}>
-        <span className={styles.wordmark}>
-          <span className={styles.wIcon}>💜</span> {t.brand}
-        </span>
+        <div className={styles.wordmark}>
+          <Image
+            src="/trac-mind-logo.png"
+            alt="TRAC-Mind"
+            width={160}
+            height={50}
+            priority
+          />
+        </div>
         <div className={styles.topRight}>
           {/* Functional Language pills (Req 2) */}
           <div className={styles.langPills} role="group" aria-label="Language selection">

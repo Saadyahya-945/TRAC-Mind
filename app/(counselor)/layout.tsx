@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import styles from "./counselor.module.css";
 
 const COUNSELOR_NAV = [
@@ -77,10 +78,14 @@ export default function CounselorLayout({ children }: { children: React.ReactNod
           onClick={handleLogoClick}
           aria-label="Counsellor dashboard"
         >
-          <span className={styles.logoMark}>
-            TRAC<span className={styles.logoAccent}>-Mind</span>
-          </span>
-          <span className={styles.logoSub}>Care Team Portal</span>
+          <Image
+            src="/trac-mind-logo.png"
+            alt="TRAC-Mind"
+            width={160}
+            height={50}
+            priority
+            className={styles.logoImage}
+          />
         </button>
         {/* Mobile close */}
         <button
@@ -177,7 +182,14 @@ export default function CounselorLayout({ children }: { children: React.ReactNod
           <span /><span /><span />
         </button>
         <button className={styles.mobileLogoBtn} onClick={handleLogoClick}>
-          TRAC<span className={styles.logoAccent}>-Mind</span>
+          <Image
+            src="/trac-mind-logo.png"
+            alt="TRAC-Mind"
+            width={120}
+            height={38}
+            priority
+            className={styles.logoImage}
+          />
         </button>
         <button
           className={styles.mobilePortalLink}

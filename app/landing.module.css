@@ -72,16 +72,9 @@
 }
 
 .wordmark {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--ink);
   display: flex;
   align-items: center;
-  gap: var(--sp-2);
-  letter-spacing: -.02em;
 }
-.wIcon { font-size: 1.375rem; }
 
 .topRight {
   display: flex;

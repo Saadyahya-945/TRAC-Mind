@@ -35,16 +35,9 @@
   flex-direction: column;
   margin-bottom: var(--sp-8);
 }
-.logoMark {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.logoSub {
-  font-size: 0.8125rem;
-  color: var(--ink-muted);
-  font-weight: 500;
+.logoImage {
+  display: block;
+  object-fit: contain;
 }
 
 .title {

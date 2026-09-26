@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import styles from "./survivor.module.css";
 import { useTranslation, Language } from "@/lib/i18n";
 
@@ -87,10 +88,14 @@ export default function SurvivorLayout({ children }: { children: React.ReactNode
           onClick={handleLogoClick}
           aria-label={t.brand}
         >
-          <span className={styles.logoBadge} aria-hidden>💜</span>
-          <span className={styles.logoText}>
-            TRAC<span className={styles.logoAccent}>-Mind</span>
-          </span>
+          <Image
+            src="/trac-mind-logo.png"
+            alt="TRAC-Mind"
+            width={160}
+            height={50}
+            priority
+            className={styles.logoImage}
+          />
         </button>
 
         <div className={styles.topbarActions}>

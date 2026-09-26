@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./login.module.css";
 
 export default function LoginPage() {
@@ -52,10 +53,14 @@ export default function LoginPage() {
 
       <div className={styles.card}>
         <div className={styles.logo}>
-          <span className={styles.logoMark}>
-            TRAC<span className="text-brand">-Mind</span>
-          </span>
-          <span className={styles.logoSub}>Care Team Portal</span>
+          <Image
+            src="/trac-mind-logo.png"
+            alt="TRAC-Mind"
+            width={220}
+            height={68}
+            priority
+            className={styles.logoImage}
+          />
         </div>
 
         <h1 className={styles.title}>Sign in</h1>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n";
+import { ServiceWorkerRegistration } from "./service-worker-registration";
 
 export const viewport: Viewport = {
   themeColor: "#8B74C9",
@@ -24,6 +25,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body>
+        <ServiceWorkerRegistration />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
